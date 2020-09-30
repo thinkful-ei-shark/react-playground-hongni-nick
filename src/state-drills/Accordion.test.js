@@ -23,4 +23,9 @@ describe('<Accordion />', () => {
     const wrapper = shallow(<Accordion />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
+
+  it('renders no section by default', () => {
+    const wrapper = shallow(<Accordion sections={sections} />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  })
 });
