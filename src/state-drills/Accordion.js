@@ -9,18 +9,6 @@ class Accordion extends Component {
     currentSection: null
   };
 
-  componentDidMount() {
-
-  }
-
-  componentDidUpdate() {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
   handleButtonClick(index){
     this.setState({currentSection: index})
   }
