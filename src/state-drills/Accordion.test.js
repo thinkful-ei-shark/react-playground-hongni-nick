@@ -28,4 +28,10 @@ describe('<Accordion />', () => {
     const wrapper = shallow(<Accordion sections={sections} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   })
+
+  it('component opens a clicked section', () => {
+    const wrapper = shallow(<Accordion sections={sections} />);
+    wrapper.find('button').at(1).simulate('click');
+    expect(toJson(wrapper)).toMatchSnapshot();
+  })
 });
