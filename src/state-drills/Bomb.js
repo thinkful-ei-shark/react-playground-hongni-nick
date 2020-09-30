@@ -5,14 +5,6 @@ class Bomb extends Component {
     count: 0
   }
 
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.setState({
-      count: props.count
-    });
-  }
-
   componentDidMount() {
     this.interval = setInterval(() => {
       const newCount = this.state.count + 1;
@@ -24,13 +16,16 @@ class Bomb extends Component {
     clearInterval(this.interval);
   }
 
+  componentDidUpdate(){
+    if (this.state.count > 8) {
+      clearInterval(this.interval);
+      this.setState({count: 0});
+    }
+  }
+
   render() {
     let word = '';
 
-    if (this.state.count > 8) {
-      this.clearInterval(this.interval);
-      this.setState({count: 0});
-    }
 
     if (this.state.count >= 8) {
       word = 'BOOM!!!!';
