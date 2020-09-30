@@ -23,7 +23,11 @@ class Accordion extends Component {
 
   render() {
     return (
-
+      <ul>
+        <li>
+          <button onClick={() => this.handleButtonClick()}>{titles}</button>
+        </li>
+      </ul>
     );
   }
 }
