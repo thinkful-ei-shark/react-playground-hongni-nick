@@ -5,8 +5,8 @@ class Accordion extends Component {
     sections: []
   };
 
-  state= {
-
+  state = {
+    currentSection: null
   };
 
   componentDidMount() {
@@ -22,11 +22,19 @@ class Accordion extends Component {
   }
 
   render() {
+    let sections = this.state.props.sections;
+    let sectionElements = sections.map((section, index) => {
+      return (
+        <li>
+          <button onClick={() => this.handleButtonClick()}>{section.title}</button>
+          {(this.state.currentSection === index) && (<p>{section.content}</p>)}
+        </li>
+      );
+    });
+
     return (
       <ul>
-        <li>
-          <button onClick={() => this.handleButtonClick()}>{titles}</button>
-        </li>
+        {sectionElements}
       </ul>
     );
   }
