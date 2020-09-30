@@ -27,9 +27,13 @@ class Bomb extends Component {
   render() {
     let word = '';
 
+    if (this.state.count > 8) {
+      this.clearInterval(this.interval);
+      this.setState({count: 0});
+    }
+
     if (this.state.count >= 8) {
       word = 'BOOM!!!!';
-      this.state.count = 0;
     } else if (this.state.count % 2 === 0) {
       word = 'tick';
     } else {
